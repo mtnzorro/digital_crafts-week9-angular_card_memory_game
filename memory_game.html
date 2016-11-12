@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Memory Game</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="angular.js"></script>
+    <script src="memory_game.js"></script>
+  </head>
+  <body>
+
+    <div class="" ng-app="my-app" ng-controller="memoryGame">
+
+      <table>
+        <tr ng-repeat="row in board.board">
+          <td ng-repeat="card in row" ng-click="clicked(card)"><img ng-show="card.open" ng-src={{card.url}}><img ng-show="!card.open" ng-src="images/logo.png"></td>
+        </tr>
+      </table>
+      <div ng-show="winner" class="winner">
+      <h1 ng-show="winner">YOU WON!!</h1><button type="submit" ng-click="newGame()">Play again</button>
+      </div>
+    </div>
+
+  </body>
+</html>
