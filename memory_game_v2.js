@@ -26,7 +26,7 @@ app.controller('memoryGame', function($scope, $timeout){
      }
     }
 
-  Board.prototype.makeBoard_easy = function(board_size) {
+  Board.prototype.makeBoard = function(board_size) {
     var num = (board_size / 2);
     // var rand = Math.floor(Math.random() * 16) + 1;
     for (var i = 0; i < num; i++) {
@@ -41,57 +41,50 @@ app.controller('memoryGame', function($scope, $timeout){
     this.board.size = num;
   };
 
-  Board.prototype.makeBoard_medium = function(board_size) {
-    var num = (board_size / 2);
-    // var rand = Math.floor(Math.random() * 16) + 1;
-    for (var i = 0; i < num; i++) {
-      var rand = Math.floor(Math.random() * 16) + 1;
-      this.protoboard.push(new Card(rand));
-      this.protoboard.push(new Card(rand));
-    }
-    shuffle(this.protoboard);
-    var board1 = this.protoboard.splice(0, 6);
-    var board2 = this.protoboard.splice(0, 6);
-    this.board.push(board1);
-    this.board.push(board2);
-    this.board.push(this.protoboard);
-    this.board.size = num;
-  };
+  // Board.prototype.makeBoard_medium = function(board_size) {
+  //   var num = (board_size / 2);
+  //   // var rand = Math.floor(Math.random() * 16) + 1;
+  //   for (var i = 0; i < num; i++) {
+  //     var rand = Math.floor(Math.random() * 16) + 1;
+  //     this.protoboard.push(new Card(rand));
+  //     this.protoboard.push(new Card(rand));
+  //   }
+  //   shuffle(this.protoboard);
+  //   var board1 = this.protoboard.splice(0, 6);
+  //   var board2 = this.protoboard.splice(0, 6);
+  //   this.board.push(board1);
+  //   this.board.push(board2);
+  //   this.board.push(this.protoboard);
+  //   this.board.size = num;
+  // };
+  //
+  // Board.prototype.makeBoard_hard = function(board_size) {
+  //   var num = (board_size / 2);
+  //   // var rand = Math.floor(Math.random() * 16) + 1;
+  //   for (var i = 0; i < num; i++) {
+  //     var rand = Math.floor(Math.random() * 16) + 1;
+  //     this.protoboard.push(new Card(rand));
+  //     this.protoboard.push(new Card(rand));
+  //   }
+  //   shuffle(this.protoboard);
+  //   var board1 = this.protoboard.splice(0, 8);
+  //   var board2 = this.protoboard.splice(0, 8);
+  //   var board3 = this.protoboard.splice(0, 8);
+  //   this.board.push(board1);
+  //   this.board.push(board2);
+  //   this.board.push(board3);
+  //   this.board.push(this.protoboard);
+  //   this.board.size = num;
+  // };
 
-  Board.prototype.makeBoard_hard = function(board_size) {
-    var num = (board_size / 2);
-    // var rand = Math.floor(Math.random() * 16) + 1;
-    for (var i = 0; i < num; i++) {
-      var rand = Math.floor(Math.random() * 16) + 1;
-      this.protoboard.push(new Card(rand));
-      this.protoboard.push(new Card(rand));
-    }
-    shuffle(this.protoboard);
-    var board1 = this.protoboard.splice(0, 8);
-    var board2 = this.protoboard.splice(0, 8);
-    var board3 = this.protoboard.splice(0, 8);
-    this.board.push(board1);
-    this.board.push(board2);
-    this.board.push(board3);
-    this.board.push(this.protoboard);
-    this.board.size = num;
-  };
 
-$scope.chooseGame = function(){
-  $scope.chosen = true;
-}
 
 $scope.newGame = function(x){
   $scope.board = new Board();
   if(x === 'easy'){
     $scope.board.makeBoard_easy(8);
   }
-  else if(x === 'medium'){
-    $scope.board.makeBoard_medium(18);
-  }
-  else if(x === 'hard'){
-    $scope.board.makeBoard_hard(32);
-  }
+
   $scope.state = 0;
   $scope.matches = [];
   $scope.firstcard = {};
@@ -100,9 +93,9 @@ $scope.newGame = function(x){
   $scope.chosen = false;
 
 };
-$scope.chooseGame()
-  // $scope.newGame();
-  // $scope.makeBoard(8);
+
+  $scope.newGame('easy');
+
   console.log($scope.board);
   $scope.clicked = function(item) {
     if (item.open === false && $scope.state === 0) {

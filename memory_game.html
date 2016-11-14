@@ -6,20 +6,46 @@
     <link rel="stylesheet" href="style.css">
     <script src="angular.js"></script>
     <script src="memory_game.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Days+One" rel="stylesheet">
   </head>
   <body>
 
     <div class="" ng-app="my-app" ng-controller="memoryGame">
+      <div class="">
+        <h1>MOST EXCELLENT MATCHING GAME</h1>
+      </div>
+      <div class="menu_screen" ng-hide="!chosen">
+        <h2>Choose level:</h2><br>
+        <button type="submit" ng-click="newGame('easy')" name="easy">Stoner Game</button>
+        <button type="submit" ng-click="newGame('medium')" name="medium">Jane Q Public Game</button>
+        <button type="submit" ng-click="newGame('hard')" name="hard">MENSA Member Game</button>
+      </div>
+      <div class="chosen" ng-hide="chosen">
 
-      <table>
+      <table class="chosen">
         <tr ng-repeat="row in board.board">
-          <td ng-repeat="card in row" ng-click="clicked(card)"><img ng-show="card.open" ng-src={{card.url}}><img ng-show="!card.open" ng-src="images/logo.png"></td>
+          <td ng-repeat="card in row" >
+            <div class="flip-container" ng-class="{'flip' : card.open}">
+              <div class="flipper">
+                <div class="front">
+                    <img ng-click="clicked(card)" ng-src="images/logo.png">
+
+                </div>
+                <div class="back">
+                <img ng-click="clicked(card)" ng-src={{card.url}}>
+                </div>
+              </div>
+            </div>
+          </td>
         </tr>
       </table>
       <div ng-show="winner" class="winner">
-      <h1 ng-show="winner">YOU WON!!</h1><button type="submit" ng-click="newGame()">Play again</button>
-      </div>
+      <h1 ng-show="winner">YOU WON!!</h1>
+      <h2>Choose level:</h2><br>
+      <button type="submit" ng-click="newGame('easy')" name="easy">Stoner Game</button>
+      <button type="submit" ng-click="newGame('medium')" name="medium">Jane Q Public Game</button>
+      <button type="submit" ng-click="newGame('hard')" name="hard">MENSA Member Game</button>
     </div>
-
+  </div>
   </body>
 </html>
