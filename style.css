@@ -3,9 +3,10 @@ body{
   font-family: 'Days One', sans-serif;
 
 }
+
 img{
-  height: 200px;
-  width: 200px;
+  height: 150px ;
+  width: 150px;
 }
 h1, h2{
   text-align: center;
@@ -37,8 +38,8 @@ button{
   	transform: rotateY(180deg);
   }
 .flip-container, .front, .back {
-	width: 200px;
-	height: 200px;
+	width: 150px;
+	height: 150px;
 }
 
 /* flip speed goes here */

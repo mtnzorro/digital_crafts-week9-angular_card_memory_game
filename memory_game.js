@@ -14,17 +14,17 @@ app.controller('memoryGame', function($scope, $timeout){
   }
 
   function shuffle(board) {
-     var i = 0;
-     var j = 0;
-     var temp = null;
+    var i = 0;
+    var j = 0;
+    var temp = null;
 
-     for (i = board.length - 1; i > 0; i--) {
-       j = Math.floor(Math.random() * (i + 1));
-       temp = board[i];
-       board[i] = board[j];
-       board[j] = temp;
-     }
+    for (i = board.length - 1; i > 0; i--) {
+      j = Math.floor(Math.random() * (i + 1));
+      temp = board[i];
+      board[i] = board[j];
+      board[j] = temp;
     }
+  }
 
   Board.prototype.makeBoard_easy = function(board_size) {
     var num = (board_size / 2);
@@ -77,30 +77,30 @@ app.controller('memoryGame', function($scope, $timeout){
     this.board.size = num;
   };
 
-$scope.chooseGame = function(){
-  $scope.chosen = true;
-}
+  $scope.chooseGame = function(){
+    $scope.chosen = true;
+  }
 
-$scope.newGame = function(x){
-  $scope.board = new Board();
-  if(x === 'easy'){
-    $scope.board.makeBoard_easy(8);
-  }
-  else if(x === 'medium'){
-    $scope.board.makeBoard_medium(18);
-  }
-  else if(x === 'hard'){
-    $scope.board.makeBoard_hard(32);
-  }
-  $scope.state = 0;
-  $scope.matches = [];
-  $scope.firstcard = {};
-  $scope.win_count = 0;
-  $scope.winner = false;
-  $scope.chosen = false;
+  $scope.newGame = function(x){
+    $scope.board = new Board();
+    if(x === 'easy'){
+      $scope.board.makeBoard_easy(8);
+    }
+    else if(x === 'medium'){
+      $scope.board.makeBoard_medium(18);
+    }
+    else if(x === 'hard'){
+      $scope.board.makeBoard_hard(32);
+    }
+    $scope.state = 0;
+    $scope.matches = [];
+    $scope.firstcard = {};
+    $scope.win_count = 0;
+    $scope.winner = false;
+    $scope.chosen = false;
 
-};
-$scope.chooseGame()
+  };
+  $scope.chooseGame()
   // $scope.newGame();
   // $scope.makeBoard(8);
   console.log($scope.board);
@@ -141,7 +141,7 @@ $scope.chooseGame()
 
   $scope.checkWinner = function(){
     if($scope.win_count === $scope.board.board.size){
-    $scope.winner = true;
+      $scope.winner = true;
     }
   };
 
