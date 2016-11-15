@@ -28,9 +28,19 @@ app.controller('memoryGame', function($scope, $timeout){
 
   Board.prototype.makeBoard_easy = function(board_size) {
     var num = (board_size / 2);
+    var randNums = [];
     // var rand = Math.floor(Math.random() * 16) + 1;
     for (var i = 0; i < num; i++) {
-      var rand = Math.floor(Math.random() * 16) + 1;
+      var pushed = true;
+      while (pushed){
+        var rand = Math.floor(Math.random() * 16) + 1;
+        if(randNums.indexOf(rand) === -1){
+          randNums.push(rand);
+          pushed = false;
+          console.log('pushed it');
+        }
+      }
+      console.log(randNums)
       this.protoboard.push(new Card(rand));
       this.protoboard.push(new Card(rand));
     }
@@ -43,9 +53,18 @@ app.controller('memoryGame', function($scope, $timeout){
 
   Board.prototype.makeBoard_medium = function(board_size) {
     var num = (board_size / 2);
-    // var rand = Math.floor(Math.random() * 16) + 1;
+    var randNums = [];
     for (var i = 0; i < num; i++) {
-      var rand = Math.floor(Math.random() * 16) + 1;
+      var pushed = true;
+      while (pushed){
+        var rand = Math.floor(Math.random() * 16) + 1;
+        if(randNums.indexOf(rand) === -1){
+          randNums.push(rand);
+          pushed = false;
+          console.log('pushed it');
+        }
+      }
+      console.log(randNums)
       this.protoboard.push(new Card(rand));
       this.protoboard.push(new Card(rand));
     }
@@ -60,9 +79,18 @@ app.controller('memoryGame', function($scope, $timeout){
 
   Board.prototype.makeBoard_hard = function(board_size) {
     var num = (board_size / 2);
-    // var rand = Math.floor(Math.random() * 16) + 1;
+    var randNums = [];
     for (var i = 0; i < num; i++) {
-      var rand = Math.floor(Math.random() * 16) + 1;
+      var pushed = true;
+      while (pushed){
+        var rand = Math.floor(Math.random() * 16) + 1;
+        if(randNums.indexOf(rand) === -1){
+          randNums.push(rand);
+          pushed = false;
+          console.log('pushed it');
+        }
+      }
+      console.log(randNums)
       this.protoboard.push(new Card(rand));
       this.protoboard.push(new Card(rand));
     }

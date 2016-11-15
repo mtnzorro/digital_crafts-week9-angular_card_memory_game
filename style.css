@@ -1,6 +1,7 @@
 body{
   margin: 0;
   font-family: 'Days One', sans-serif;
+  background-color: lightgrey;
 
 }
 
@@ -20,6 +21,7 @@ h1, h2{
 .chosen{
   margin-left: auto;
   margin-right: auto;
+  background-color: white;
 }
 
 button{
