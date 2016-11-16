@@ -34,10 +34,7 @@ CSS
 Object Oriented Programming
 
 ##### Angular.JS Design:
-Object classes were implemented as part of functionality including:
-Card Object (stores a point(numeric) value along with suit)
-Hand Object (stores an array of Card objects during each hand, along with a method for totalling the points in a given hand)
-Deck Object (an instance of a given deck of 52 cards, including a shuffle and card draw method)
+
 
 ##### Contributors:
 Jason Campbell
